@@ -1,0 +1,22 @@
+version: '2'
+
+services:
+  db-app:
+    image: 'app:latest'
+    build:
+      context: .
+    container_name: db-app
+    depends_on:
+      - db-app-postgres
+    ports:
+      - 8080:8080
+
+  db-app-postgres:
+    image: postgres
+    container_name: db-app-postgres
+    environment:
+      - POSTGRES_DB=db-app
+      - POSTGRES_USER=db-app-user
+      - POSTGRES_PASSWORD=db-app-password
+    ports:
+      - 5432:5432
