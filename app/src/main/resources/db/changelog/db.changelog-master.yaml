@@ -15,3 +15,5 @@ databaseChangeLog:
       file: db/changelog/2022/7-create_products.sql
   - include:
       file: db/changelog/2022/8-insert_products.sql
+  - include:
+      file: db/changelog/2022/9-create_create_customer_demographic.sql
