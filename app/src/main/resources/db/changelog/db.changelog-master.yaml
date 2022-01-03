@@ -11,3 +11,7 @@ databaseChangeLog:
       file: db/changelog/2022/5-create_categories.sql
   - include:
       file: db/changelog/2022/6-insert_categories.sql
+  - include:
+      file: db/changelog/2022/7-create_products.sql
+  - include:
+      file: db/changelog/2022/8-insert_products.sql
