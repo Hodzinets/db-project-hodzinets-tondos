@@ -7,3 +7,7 @@ databaseChangeLog:
       file: db/changelog/2022/3-create_shippers.sql
   - include:
       file: db/changelog/2022/4-insert_shippers.sql
+  - include:
+      file: db/changelog/2022/5-create_categories.sql
+  - include:
+      file: db/changelog/2022/6-insert_categories.sql
