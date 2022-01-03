@@ -3,3 +3,7 @@ databaseChangeLog:
       file: db/changelog/2022/1-create_suppliers.sql
   - include:
       file: db/changelog/2022/2-insert_suppliers.sql
+  - include:
+      file: db/changelog/2022/3-create_shippers.sql
+  - include:
+      file: db/changelog/2022/4-insert_shippers.sql
