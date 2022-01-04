@@ -1,5 +1,6 @@
 package com.db.app.database.model;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -19,7 +20,4 @@ public class CustomerDemographic {
 
     @Column(name = "CustomerDesc")
     private String CustomerDesc;
-
-    @ManyToMany(mappedBy = "customerDemographics")
-    List<Customer> customers;
 }
