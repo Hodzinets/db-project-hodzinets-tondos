@@ -9,7 +9,7 @@ import java.time.LocalDate;
 @Table(name = "Employees")
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 @Builder
 public class Employee {
     @Id

@@ -10,7 +10,7 @@ import java.util.List;
 @Table(name = "Customers")
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 @Builder
 public class Customer {
     @Id
