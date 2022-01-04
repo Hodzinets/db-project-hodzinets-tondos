@@ -23,3 +23,7 @@ databaseChangeLog:
       file: db/changelog/2022/11-insert_customers.sql
   - include:
       file: db/changelog/2022/12-create_customer_customer_demo.sql
+  - include:
+      file: db/changelog/2022/13-create_employees.sql
+  - include:
+      file: db/changelog/2022/14-insert_employees.sql
