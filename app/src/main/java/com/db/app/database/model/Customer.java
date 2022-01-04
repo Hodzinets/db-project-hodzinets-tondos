@@ -3,6 +3,7 @@ package com.db.app.database.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "Customers")
@@ -44,4 +45,11 @@ public class Customer {
 
     @Column(name = "Fax")
     private String fax;
+
+    @ManyToMany
+    @JoinTable(
+            name = "CustomerCustomerDemo",
+            joinColumns = @JoinColumn(name = "CustomerID"),
+            inverseJoinColumns = @JoinColumn(name = "CustomerTypeID"))
+    List<CustomerDemographic> customerDemographics;
 }

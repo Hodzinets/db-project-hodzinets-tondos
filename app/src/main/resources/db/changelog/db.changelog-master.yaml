@@ -21,3 +21,5 @@ databaseChangeLog:
       file: db/changelog/2022/10-create_customers.sql
   - include:
       file: db/changelog/2022/11-insert_customers.sql
+  - include:
+      file: db/changelog/2022/12-create_customer_customer_demo.sql

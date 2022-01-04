@@ -3,6 +3,7 @@ package com.db.app.database.model;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "CustomerDemographics")
@@ -18,4 +19,7 @@ public class CustomerDemographic {
 
     @Column(name = "CustomerDesc")
     private String CustomerDesc;
+
+    @ManyToMany(mappedBy = "customerDemographics")
+    List<Customer> customers;
 }
