@@ -27,3 +27,7 @@ databaseChangeLog:
       file: db/changelog/2022/13-create_employees.sql
   - include:
       file: db/changelog/2022/14-insert_employees.sql
+  - include:
+      file: db/changelog/2022/15-create_orders.sql
+  - include:
+      file: db/changelog/2022/16-insert_orders.sql
