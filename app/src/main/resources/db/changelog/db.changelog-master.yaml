@@ -33,3 +33,5 @@ databaseChangeLog:
       file: db/changelog/2022/16-insert_orders.sql
   - include:
       file: db/changelog/2022/17-update_employees_reports_to.sql
+  - include:
+      file: db/changelog/2022/18-update_customer_customer_demo_constraints.sql

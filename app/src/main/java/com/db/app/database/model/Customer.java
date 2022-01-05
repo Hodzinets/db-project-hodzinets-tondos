@@ -50,7 +50,7 @@ public class Customer {
     @ManyToMany
     @JoinTable(
             name = "CustomerCustomerDemo",
-            joinColumns = @JoinColumn(name = "CustomerID"),
-            inverseJoinColumns = @JoinColumn(name = "CustomerTypeID"))
+            joinColumns = @JoinColumn(name = "CustomerID", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "CustomerTypeID", nullable = false))
     List<CustomerDemographic> customerDemographics;
 }
