@@ -41,3 +41,5 @@ databaseChangeLog:
       file: db/changelog/2022/20-insert_order_details.sql
   - include:
       file: db/changelog/2022/21-create_region.sql
+  - include:
+      file: db/changelog/2022/22-create_territories.sql
