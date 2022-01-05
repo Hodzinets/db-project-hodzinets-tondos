@@ -8,7 +8,7 @@ import javax.persistence.*;
 @Table(name = "Products")
 @Getter
 @AllArgsConstructor
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor
 @Builder
 public class Product {
     @Id
