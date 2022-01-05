@@ -18,11 +18,11 @@ public class Order {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "CustomerID")
+    @JoinColumn(name = "CustomerID", nullable = false)
     private Customer customer;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "EmployeeID")
+    @JoinColumn(name = "EmployeeID", nullable = false)
     private Employee employee;
 
     @Column(name = "OrderDate")
