@@ -4,6 +4,7 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "Employees")
@@ -68,4 +69,11 @@ public class Employee {
 
     @Column(name = "PhotoPath")
     private String photoPath;
+
+    @ManyToMany
+    @JoinTable(
+            name = "EmployeeTerritories",
+            joinColumns = @JoinColumn(name = "EmployeeID", nullable = false),
+            inverseJoinColumns = @JoinColumn(name = "TerritoryID", nullable = false))
+    List<Territory> territories;
 }
