@@ -77,3 +77,5 @@ VALUES (1, 'Chai', 1, 1, '10 boxes x 20 bags', 0, 39, 0, 10, 0)
      , (75, 'Rh?nbr?u Klosterbier', 12, 1, '24 - 0.5 l bottles', 0, 125, 0, 25, 0)
      , (76, 'Lakkalik??ri', 23, 1, '500 ml', 0, 57, 0, 20, 0)
      , (77, 'Original Frankfurter gr?ne So?e', 12, 2, '12 boxes', 0, 32, 0, 15, 0);
+
+ALTER SEQUENCE products_productid_seq RESTART WITH 78;

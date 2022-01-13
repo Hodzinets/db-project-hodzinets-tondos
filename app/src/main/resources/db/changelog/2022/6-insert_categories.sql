@@ -7,3 +7,5 @@ VALUES (1, 'Beverages', 'Soft drinks, coffees, teas, beers, and ales')
      , (6, 'Meat/Poultry', 'Prepared meats')
      , (7, 'Produce', 'Dried fruit and bean curd')
      , (8, 'Seafood', 'Seaweed and fish');
+
+ALTER SEQUENCE categories_categoryid_seq RESTART WITH 9;

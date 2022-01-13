@@ -831,3 +831,5 @@ INSERT INTO Orders(OrderID, CustomerID, EmployeeID, OrderDate, RequiredDate, Shi
     (11075, 'RICSU', 8, '1998-05-06', '1998-06-03', null, 2, 0, 'Richter Supermarkt', 'Starenweg 5', 'Gen?ve', '', '1204', 'Switzerland'),
     (11076, 'BONAP', 4, '1998-05-06', '1998-06-03', null, 2, 0, 'Bon app''', '12, rue des Bouchers', 'Marseille', '', '13008', 'France'),
     (11077, 'RATTC', 1, '1998-05-06', '1998-06-03', null, 2, 0, 'Rattlesnake Canyon Grocery', '2817 Milton Dr.', 'Albuquerque', 'NM', '87110', 'United States');
+
+ALTER SEQUENCE orders_orderid_seq RESTART WITH 11078;

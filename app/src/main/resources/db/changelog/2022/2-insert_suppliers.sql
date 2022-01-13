@@ -28,3 +28,5 @@ INSERT INTO Suppliers(SupplierID,CompanyName,ContactName,ContactTitle,Address,Ci
 ,(27,'Escargots Nouveaux','Marie Delamare','Sales Manager','22, rue H. Voiron','Montceau','71300','France','85.57.00.07')
 ,(28,'Gai p?turage','Eliane Noz','Sales Representative','Bat. B\r\n3, rue des Alpes','Annecy','74000','France','38.76.98.06')
 ,(29,'For?ts d''''?rables','Chantal Goulet','Accounting Manager','148 rue Chasseur','Ste-Hyacinthe','J2S 7S8','Canada','(514) 555-2955');
+
+ALTER SEQUENCE suppliers_supplierid_seq RESTART WITH 30;
