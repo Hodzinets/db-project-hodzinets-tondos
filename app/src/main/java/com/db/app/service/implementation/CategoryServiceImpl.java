@@ -4,6 +4,7 @@ import com.db.app.database.model.Category;
 import com.db.app.database.repository.CategoryRepository;
 import com.db.app.mapper.CategoryMapper;
 import com.db.app.model.request.CreateCategoryRequest;
+import com.db.app.model.request.UpdateCategoryRequest;
 import com.db.app.model.response.CategoryResponse;
 import com.db.app.service.CategoryService;
 import com.db.app.service.exception.NotFoundException;
@@ -12,6 +13,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
+
+import static org.springframework.util.StringUtils.hasText;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {
@@ -42,6 +45,23 @@ public class CategoryServiceImpl implements CategoryService {
                 .picture(request.getPicture()).build();
 
         Category category = categoryRepository.save(newCategory);
+        return categoryMapper.toCategoryResponse(category);
+    }
+
+    @Override
+    public CategoryResponse update(Long id, UpdateCategoryRequest request) {
+        Category.CategoryBuilder categoryBuilder = findById(id).toBuilder();
+        if(hasText(request.getCategoryName())){
+            categoryBuilder.categoryName(request.getCategoryName());
+        }
+        if(hasText(request.getDescription())){
+            categoryBuilder.categoryName(request.getDescription());
+        }
+        if(hasText(request.getPicture())){
+            categoryBuilder.categoryName(request.getPicture());
+        }
+
+        Category category = categoryRepository.save(categoryBuilder.build());
         return categoryMapper.toCategoryResponse(category);
     }
 

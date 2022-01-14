@@ -1,6 +1,7 @@
 package com.db.app.controller;
 
 import com.db.app.model.request.CreateCategoryRequest;
+import com.db.app.model.request.UpdateCategoryRequest;
 import com.db.app.model.response.CategoryResponse;
 import com.db.app.service.CategoryService;
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
@@ -29,6 +30,12 @@ public class CategoryController {
     @PostMapping
     public ResponseEntity<CategoryResponse> create(@RequestBody CreateCategoryRequest request) {
         return ResponseEntity.ok(categoryService.create(request));
+    }
+
+    @PutMapping("/{categoryId}")
+    public ResponseEntity<CategoryResponse> update(@PathVariable("categoryId") Long id,
+                                                   @RequestBody UpdateCategoryRequest request) {
+        return ResponseEntity.ok(categoryService.update(id, request));
     }
 
     @DeleteMapping("/{categoryId}")
