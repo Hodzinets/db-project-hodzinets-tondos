@@ -1,6 +1,5 @@
 package com.db.app.database.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
@@ -18,7 +17,7 @@ public class Customer {
     private String id;
 
     @Column(name = "CompanyName")
-    private String CustomerDesc;
+    private String companyName;
 
     @Column(name = "ContactName")
     private String contactName;

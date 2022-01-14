@@ -1,14 +1,10 @@
 package com.db.app.controller;
 
-import com.db.app.database.model.Customer;
-import com.db.app.database.model.Order;
-import com.db.app.database.model.OrderDetails;
-import com.db.app.database.repository.CustomerRepository;
-import com.db.app.database.repository.OrderDetailsRepository;
-import com.db.app.database.repository.OrderRepository;
+import com.db.app.model.response.OrderResponse;
+import com.db.app.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,17 +14,8 @@ import java.util.List;
 @RequestMapping("/order")
 public class OrderController {
     @Autowired
-    private OrderRepository orderRepository;
-    @Autowired
-    private OrderDetailsRepository orderDetailsRepository;
+    private OrderService orderService;
 
     @GetMapping
-    public List<Order> getAll() {
-        return orderRepository.findAll();
-    }
-
-    @GetMapping("/details/{orderId}")
-    public List<OrderDetails> getDetails(@PathVariable("orderId") Long orderId) {
-        return orderDetailsRepository.findByIdOrderIDId(orderId);
-    }
+    public ResponseEntity<List<OrderResponse>> getAll() { return ResponseEntity.ok(orderService.getAll()); }
 }

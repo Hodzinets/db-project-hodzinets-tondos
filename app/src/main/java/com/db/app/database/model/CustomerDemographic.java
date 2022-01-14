@@ -1,10 +1,8 @@
 package com.db.app.database.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
 @Table(name = "CustomerDemographics")

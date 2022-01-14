@@ -33,10 +33,10 @@ public class OrderDetails {
     public static class Id implements Serializable {
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "OrderID")
-        private Order orderID;
+        private Order order;
 
         @ManyToOne(fetch = FetchType.LAZY)
         @JoinColumn(name = "ProductID")
-        private Product productID;
+        private Product product;
     }
 }
