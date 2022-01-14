@@ -1,8 +1,9 @@
 package com.db.app.controller;
 
-import com.db.app.database.model.Product;
-import com.db.app.database.repository.ProductRepository;
+import com.db.app.model.response.ProductResponse;
+import com.db.app.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,10 +14,10 @@ import java.util.List;
 @RequestMapping("/product")
 public class ProductController {
     @Autowired
-    private ProductRepository productRepository;
+    private ProductService productService;
 
     @GetMapping
-    public List<Product> getAll() {
-        return productRepository.findAll();
+    public ResponseEntity<List<ProductResponse>> getAll() {
+        return ResponseEntity.ok(productService.getAll());
     }
 }

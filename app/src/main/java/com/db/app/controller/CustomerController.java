@@ -1,10 +1,9 @@
 package com.db.app.controller;
 
-import com.db.app.database.model.Customer;
-import com.db.app.database.model.Product;
-import com.db.app.database.repository.CustomerRepository;
-import com.db.app.database.repository.ProductRepository;
+import com.db.app.model.response.CustomerResponse;
+import com.db.app.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,10 +14,10 @@ import java.util.List;
 @RequestMapping("/customer")
 public class CustomerController {
     @Autowired
-    private CustomerRepository customerRepository;
+    private CustomerService customerService;
 
     @GetMapping
-    public List<Customer> getAll() {
-        return customerRepository.findAll();
+    public ResponseEntity<List<CustomerResponse>> getAll() {
+        return ResponseEntity.ok(customerService.getAll());
     }
 }

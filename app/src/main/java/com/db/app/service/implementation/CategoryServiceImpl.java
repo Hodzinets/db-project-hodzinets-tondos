@@ -7,7 +7,7 @@ import com.db.app.model.request.CreateCategoryRequest;
 import com.db.app.model.request.UpdateCategoryRequest;
 import com.db.app.model.response.CategoryResponse;
 import com.db.app.service.CategoryService;
-import com.db.app.service.exception.NotFoundException;
+import com.db.app.exception.NotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
