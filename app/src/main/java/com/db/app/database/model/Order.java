@@ -1,6 +1,7 @@
 package com.db.app.database.model;
 
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -38,7 +39,8 @@ public class Order {
     @JoinColumn(name = "ShipVia")
     private Shipper shipper;
 
-    @Column(name = "Freight", nullable = false, columnDefinition = "SMALLINT")
+    @Column(name = "Freight", nullable = false)
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean freight;
 
     @Column(name = "ShipName")

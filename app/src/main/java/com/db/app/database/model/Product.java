@@ -1,6 +1,7 @@
 package com.db.app.database.model;
 
 import lombok.*;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 
@@ -9,7 +10,7 @@ import javax.persistence.*;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
+@Builder(toBuilder = true)
 public class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,6 +43,12 @@ public class Product {
     @Column(name = "ReorderLevel")
     private Integer reorderLevel;
 
-    @Column(name = "Discontinued", nullable = false, columnDefinition = "SMALLINT")
+    @Column(name = "Discontinued", nullable = false)
+    @Type(type = "org.hibernate.type.NumericBooleanType")
     private Boolean discontinued;
+
+    public void updateUnitsQuantity(Integer quantity) {
+        this.unitsInStock -= quantity;
+        this.unitsOnOrder += quantity;
+    }
 }

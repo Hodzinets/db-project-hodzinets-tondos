@@ -1,13 +1,11 @@
 package com.db.app.controller;
 
+import com.db.app.model.request.CreateOrderRequest;
 import com.db.app.model.response.OrderResponse;
 import com.db.app.service.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +21,10 @@ public class OrderController {
     @GetMapping("/{orderId}")
     public ResponseEntity<OrderResponse> getById(@PathVariable("orderId") Long id) {
         return ResponseEntity.ok(orderService.getById(id));
+    }
+
+    @PostMapping
+    public ResponseEntity<OrderResponse> create(@RequestBody CreateOrderRequest request) {
+        return ResponseEntity.ok(orderService.create(request));
     }
 }
