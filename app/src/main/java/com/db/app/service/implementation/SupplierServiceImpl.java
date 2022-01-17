@@ -1,7 +1,9 @@
 package com.db.app.service.implementation;
 
+import com.db.app.database.model.Category;
 import com.db.app.database.model.Supplier;
 import com.db.app.database.repository.SupplierRepository;
+import com.db.app.exception.NotFoundException;
 import com.db.app.mapper.SupplierMapper;
 import com.db.app.model.response.SupplierResponse;
 import com.db.app.service.SupplierService;
@@ -27,11 +29,16 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public SupplierResponse getById(Long id) {
-        return null;
+        Supplier supplier = findById(id);
+        return supplierMapper.toSupplierResponse(supplier);
     }
 
     @Override
     public void delete(Long id) {
 
+    }
+
+    private Supplier findById(Long id) {
+        return supplierRepository.findById(id).orElseThrow(() -> new NotFoundException("Supplier not found"));
     }
 }
