@@ -1,6 +1,7 @@
 package com.db.app.service;
 
 import com.db.app.model.request.CreateCategoryRequest;
+import com.db.app.model.request.CreateSupplierRequest;
 import com.db.app.model.request.UpdateCategoryRequest;
 import com.db.app.model.response.CategoryResponse;
 import com.db.app.model.response.SupplierResponse;
@@ -12,7 +13,7 @@ public interface SupplierService {
 
     SupplierResponse getById(Long id);
 
-//    SupplierResponse create(CreateSupplierReques request);
+    SupplierResponse create(CreateSupplierRequest request);
 
 //    SupplierResponse update(Long id, UpdateSupplierRequest request);
 
