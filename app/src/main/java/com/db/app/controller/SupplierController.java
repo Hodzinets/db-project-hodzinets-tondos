@@ -40,4 +40,11 @@ public class SupplierController {
                                                    @RequestBody UpdateSupplierRequest request) {
         return ResponseEntity.ok(supplierService.update(id, request));
     }
+
+    @DeleteMapping("/{supplierId}")
+    public ResponseEntity delete(@PathVariable("supplierId") Long id) {
+        supplierService.delete(id);
+
+        return ResponseEntity.ok().build();
+    }
 }
