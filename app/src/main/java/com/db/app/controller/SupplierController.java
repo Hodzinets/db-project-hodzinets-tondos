@@ -2,6 +2,9 @@ package com.db.app.controller;
 
 import com.db.app.model.request.CreateOrderRequest;
 import com.db.app.model.request.CreateSupplierRequest;
+import com.db.app.model.request.UpdateCategoryRequest;
+import com.db.app.model.request.UpdateSupplierRequest;
+import com.db.app.model.response.CategoryResponse;
 import com.db.app.model.response.OrderResponse;
 import com.db.app.model.response.SupplierResponse;
 import com.db.app.service.SupplierService;
@@ -30,5 +33,11 @@ public class SupplierController {
     @PostMapping
     public ResponseEntity<SupplierResponse> create(@RequestBody CreateSupplierRequest request) {
         return ResponseEntity.ok(supplierService.create(request));
+    }
+
+    @PutMapping("/{supplierId}")
+    public ResponseEntity<SupplierResponse> update(@PathVariable("supplierId") Long id,
+                                                   @RequestBody UpdateSupplierRequest request) {
+        return ResponseEntity.ok(supplierService.update(id, request));
     }
 }
