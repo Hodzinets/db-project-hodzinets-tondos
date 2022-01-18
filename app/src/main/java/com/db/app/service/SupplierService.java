@@ -3,6 +3,7 @@ package com.db.app.service;
 import com.db.app.model.request.CreateCategoryRequest;
 import com.db.app.model.request.CreateSupplierRequest;
 import com.db.app.model.request.UpdateCategoryRequest;
+import com.db.app.model.request.UpdateSupplierRequest;
 import com.db.app.model.response.CategoryResponse;
 import com.db.app.model.response.SupplierResponse;
 
@@ -15,7 +16,7 @@ public interface SupplierService {
 
     SupplierResponse create(CreateSupplierRequest request);
 
-//    SupplierResponse update(Long id, UpdateSupplierRequest request);
+    SupplierResponse update(Long id, UpdateSupplierRequest request);
 
     void delete(Long id);
 }

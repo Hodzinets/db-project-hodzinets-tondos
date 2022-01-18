@@ -6,10 +6,12 @@ import com.db.app.database.repository.SupplierRepository;
 import com.db.app.exception.NotFoundException;
 import com.db.app.mapper.SupplierMapper;
 import com.db.app.model.request.CreateSupplierRequest;
+import com.db.app.model.request.UpdateSupplierRequest;
 import com.db.app.model.response.SupplierResponse;
 import com.db.app.service.SupplierService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import static org.springframework.util.StringUtils.hasText;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -52,6 +54,58 @@ public class SupplierServiceImpl implements SupplierService {
 
         Supplier supplier = supplierRepository.save(newSupplier);
 
+        return supplierMapper.toSupplierResponse(supplier);
+    }
+
+    @Override
+    public SupplierResponse update(Long id, UpdateSupplierRequest request) {
+        Supplier.SupplierBuilder supplierBuilder = findById(id).toBuilder();
+
+        if(hasText(request.getCompanyName())) {
+            supplierBuilder.companyName(request.getCompanyName());
+        }
+
+        if(hasText(request.getContactName())) {
+            supplierBuilder.contactName(request.getContactName());
+        }
+
+        if(hasText(request.getContactTitle())) {
+            supplierBuilder.contactTitle(request.getContactTitle());
+        }
+
+        if(hasText(request.getAddress())) {
+            supplierBuilder.address(request.getAddress());
+        }
+
+        if(hasText(request.getCity())) {
+            supplierBuilder.city(request.getCity());
+        }
+
+        if(hasText(request.getRegion())) {
+            supplierBuilder.region(request.getRegion());
+        }
+
+        if(hasText(request.getPostalCode())) {
+            supplierBuilder.postalCode(request.getPostalCode());
+        }
+
+        if(hasText(request.getCountry())) {
+            supplierBuilder.country(request.getCountry());
+        }
+
+        if(hasText(request.getPhone())) {
+            supplierBuilder.phone(request.getPhone());
+        }
+
+        if(hasText(request.getFax())) {
+            supplierBuilder.fax(request.getFax());
+        }
+
+        if(hasText(request.getHomePage())) {
+            supplierBuilder.homePage(request.getHomePage());
+        }
+
+        Supplier supplier = supplierRepository.save(supplierBuilder.build());
         return supplierMapper.toSupplierResponse(supplier);
     }
 
