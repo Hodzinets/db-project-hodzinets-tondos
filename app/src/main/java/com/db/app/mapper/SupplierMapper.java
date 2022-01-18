@@ -10,6 +10,7 @@ public class SupplierMapper {
         return SupplierResponse.builder()
                 .id(supplier.getId())
                 .companyName(supplier.getCompanyName())
+                .contactTitle(supplier.getContactTitle())
                 .contactName(supplier.getContactName())
                 .address(supplier.getAddress())
                 .city(supplier.getCity())
