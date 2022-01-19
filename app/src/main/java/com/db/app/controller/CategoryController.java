@@ -4,12 +4,14 @@ import com.db.app.model.request.CreateCategoryRequest;
 import com.db.app.model.request.UpdateCategoryRequest;
 import com.db.app.model.response.CategoryResponse;
 import com.db.app.service.CategoryService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/category")
 public class CategoryController {
@@ -18,7 +20,10 @@ public class CategoryController {
 
     @GetMapping
     public ResponseEntity<List<CategoryResponse>> getAll() {
-        return ResponseEntity.ok(categoryService.getAll());
+        long start = System.currentTimeMillis();
+        var result = categoryService.getAll();
+        log.info("Got categories in " + (System.currentTimeMillis()-start) + " milliseconds");
+        return ResponseEntity.ok(result);
     }
 
     @GetMapping("/{categoryId}")
